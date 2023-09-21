@@ -24,7 +24,7 @@ slides.forEach(item =>{
 	newDot.classList.add('dot');
 	newDot.setAttribute("id", dotId);
 	if (newDot.id == 0) {
-		newDot.classList.add('dot_selected')
+		newDot.classList.add('dot_selected');
 	};
 	bannerDots.appendChild(newDot);
 	dotId++;
@@ -35,12 +35,12 @@ let bannerSlide = slides[index];
 
 //Fonction qui permet la rotation du carousel et le changement du text
 function changeContent (){
-	if (index < 0){
-		index = 3;
+	if(index < 0){
+		index = slides.length-1;
 	}else if( index > slides.length-1){
 		index = 0;
 	}
-	let bannerSlide = slides[index];
+	bannerSlide = slides[index];
 	let bannerImg = document.getElementById("bannerImg");
 	srcImg = "./assets/images/slideshow/"+bannerSlide.image;
 	bannerImg.setAttribute("src", srcImg)
@@ -60,17 +60,12 @@ function changeContent (){
 	}
 }
 //On recupere les flèches left & right et on leurs applique la fonction
-let leftArrow = document.getElementById("leftArrow");
-leftArrow.addEventListener("click", () => {
-	index = index --- 1; 
+ document.getElementById("leftArrow").addEventListener("click", () => {
+	index-- ; 
 	changeContent(bannerSlide);
 })
 
-let rightArrow = document.getElementById("rightArrow");
-rightArrow.addEventListener("click", () => {
-	index = index +++ 1;
+document.getElementById("rightArrow").addEventListener("click", () => {
+	index++ ;
 	changeContent();
 })
-
-
-
