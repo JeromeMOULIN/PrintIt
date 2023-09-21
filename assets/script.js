@@ -37,7 +37,7 @@ let bannerSlide = slides[index];
 function changeContent (){
 	if (index < 0){
 		index = 3;
-	}else if( index > 3){
+	}else if( index > slides.length-1){
 		index = 0;
 	}
 	let bannerSlide = slides[index];
